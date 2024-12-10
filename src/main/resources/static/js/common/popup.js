@@ -119,8 +119,8 @@ function addrCheck(id,orderitem,price) {
     });
 }
 function addrChange(){
-    $('#detailaddr').val("");
     execDaumPostcode();
+    $('#detailaddr').val("");
     $('#detailaddr').attr('readonly',false);
 }
 function addressConfirm(){

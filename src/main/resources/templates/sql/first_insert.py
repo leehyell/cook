@@ -18,7 +18,7 @@ oracledb.init_oracle_client(lib_dir="C:\\project\\cook\\instantclient_11_2")
 
 # 오라클 데이터베이스 연결
 #각자 계정 연결
-connect = oracledb.connect(user='', password='', dsn='')
+connect = oracledb.connect(user='', password='1234', dsn='localhost')
 c = connect.cursor()  # 커서 생성
 
 today = datetime.today()
@@ -301,6 +301,48 @@ c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_se
 #90 쌈장
 c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('해찬들 사계절 쌈장, 500g, 1개',2250,'돈코츠 라멘'))
 
+#####24. 야끼소바
+##### 불고기(38), 양파(3), 양배추(65), 숙주나물(86), 우동사리(91), 느타리버섯(32), 생강(66), 식용유(35), 간장(6), 맛술(40), 설탕(7), 스리랏차소스(92)
+#91 우동 사리
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('풀무원 냉장_수타식 우동사리면 1인분, 210g, 1개',1380,'야끼소바'))
+#92 스리라차
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('제이렉 스리라차 소스, 225ml, 1개',2990,'야끼소바'))
+
+##### 25. 메밀소바
+##### 메밀면(93), 메밀소바장국(94), 김(88), 와사비(95), 양파(3), 대파(11)
+#93 메밀면
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('칠갑농산 메밀면, 400g, 1개',2780,'메밀소바'))
+#94 메밀소바장국
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('오뚜기 메밀소바장국 소스, 360ml, 1개',2880,'메밀소바'))
+#95 생와사비
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('청정원 생와사비, 40g, 1개',2980,'메밀소바'))
+
+##### 26. 오코노미야키
+##### 양배추(65), 베이컨(96), 계란(2), 튀김가루(97), 가쓰오부시(98), 데리야끼소스(99), 마요네즈(5), 식용유(35)
+#96 베이컨
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('곰곰 담백한 베이컨, 130g, 1개',2150,'오코노미야키'))
+#97 튀김가루
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('곰곰 바삭한 튀김가루, 1kg, 1개',2230,'오코노미야키'))
+#98 기쓰오부시
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('석하 곱게깎은 가다랑어 가쓰오부시, 40g, 1개',5060,'오코노미야키'))
+#99 데리야끼 소스
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('청정원 데리야끼 소스, 1개, 250g',3180,'오코노미야키'))
+
+##### 27. 차왕무시
+##### 칵테일 새우(100), 계란(2), 다시마(101), 소금(17), 우유(102)
+#100 칵테일 새우
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('곰곰 냉동 흰다리 새우살, 300g(24~33미), 1개',5890,'차왕무시'))
+#101 다시마
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('주일 완도 명품 자른 다시마, 1개, 50g',2380,'차왕무시'))
+#102 우유
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('곰곰 신선한 우유, 900ml, 1개',2260,'차왕무시'))
+
+##### 28. 당고
+##### 건식 찹쌀가루(103), 소금(17), 진간장(6), 설탕(7), 맛술(40), 옥수수전분(104)
+#103 건식 찹쌀가루
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('배대감 국산 찹쌀가루, 500g, 1개',4600,'당고'))
+#104 옥수수 전분
+c.execute('insert into ingredient (ingre_seq,name,price,keyword) values(ingre_seq.nextval,:1,:2,:3)',('배대감 옥수수전분, 350g, 1개',2180,'당고'))
 
 ###############recipe
 ##########한식
@@ -559,7 +601,7 @@ c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredie
            '볶아진 밥에 소금 세꼬집을 뿌린다.<br>'+
            '틈틈히 볶아주면서 야채를 투입한다.<br>'+
            '야채가 익을 때 까지 볶아준다.<br>'+
-           '+)취향에 따라 계란후라이를 올린다.<br>'+
+           '+) 취향에 따라 계란후라이를 올린다.<br>'+
            'EAT!',0
         ))
 
@@ -573,7 +615,7 @@ c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredie
            '스크램블이 완성이 되었다면 볶은 파와 섞어준다.<br>'+
            '프라이팬 모퉁이에 새우를 볶아준다.<br>'+
            '새우와 파와 스크램블을 함께 섞어주고 간을 맞추기 위해서 간장으로 간을 맞춰준다.<br>'+
-           '간이 골고루 베이도록 잘 섞어준다.<br>'+
+           '간이 골고루 배도록 잘 섞어준다.<br>'+
            '고소함을 더해 주기 위해서 참기름도 1t 추가한다.<br>'+
            '그릇에 담아 위에 통깨를 살짝 뿌린다.<br>'+
            'EAT!',0
@@ -614,7 +656,7 @@ c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredie
 #####규동 소고기 덮밥
 ##불고기용 소고기(38),계란(2),쪽파(39),양파(3),밥(4),모란봉 규동소스(85)
 c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredient,recipe,hits) values(recipe_seq.nextval,:1,:2,:3,:4,:5,:6,:7)',
-          ('규동 소고기 덮밥','일식','밥','gudongbab.jpg','38,2,39,3,4,85',
+          ('규동 소고기 덮밥','일식','밥','gyudong.jpg','38,2,39,3,4,85',
            '양파 0.5개는 길게, 쪽파 2줄은 잘게 썰어 준다.<br>'+
            '소고기는 먹기 좋은 크기로 썰어준다.<br>'+
            '규동소스 30g에 물 50g을 희석하여 소스를 만든다.<br>'+
@@ -624,25 +666,97 @@ c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredie
            '소스가 조금 남을때까지 졸인 후 밥 위에 얹는다.<br>'+
            'EAT!',0))
 
-###면
-#####돈코츠 라멘
-##삼겹살(61),숙주나물(86),사골곰탕(70),소면(87),김(88),계란(2),소금(17),후추(27),다진마늘(14),쯔유(89),간장(6),맛술(40),쌈장(90)
+### 면
+##### 돈코츠 라멘
+##### 삼겹살(61),숙주나물(86),사골곰탕(70),소면(87),김(88),계란(2),대파(11),소금(17),후추(27),다진마늘(14),쯔유(89),간장(6),맛술(40),쌈장(90)
 c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredient,recipe,hits) values(recipe_seq.nextval,:1,:2,:3,:4,:5,:6,:7)',
-          ('돈코츠 라멘','일식','면','donkozramen.jpg','61,86,70,87,88,2,17,27,14,89,6,40,90',
+          ('돈코츠 라멘','일식','면','doncozramen.jpg','61,86,70,87,88,2,11,17,27,14,89,6,40,90',
            '끓는 물에 삼겹살을 잠길정도로 넣는다.<br>'+
            '맛술 2큰술, 쯔유 1큰술, 간장 1큰술을 넣는다.<br>'+
            '뚜껑을 덮고 중불로 졸여준다.<br>'+
            '냄비에 물과 소금을 넣고 달걀을 2개 넣어 9~10분 정도 삶아 반숙으로 준비한다.<br>'+
-           '달군 후라이팬에 김을 앞뒤로 구워준다.<br>'+
+           '달군 후라이팬에 김 2장을 앞뒤로 구워준다.<br>'+
            '김을 먹기 좋은 사이즈로 잘라준다.<br>'+
            '고명으로 올릴 대파도 잘게 썰어준다.<br>'+
            '끓는 물에 소면을 삶아준다.(찬물을 부어가며 끓인다.)<br>'+
-           '냄비에 사골 곰탕을 넣고 끓인다.<br>'+
+           '냄비에 사골 곰탕 500g 2팩을 넣고 끓인다.<br>'+
            '국물이 끓으면 쌈장 1작은술을 넣고 소금과 후추로 간을 해준다.<br>'+
            '그릇에 다진 마늘 1큰술, 숙주 한줌을 넣어준다.<br>'+
            '그 위에 소면 → 육수 → 대파 → 고기 → 계란 → 김 순으로 올려준다.<br>'+
            'EAT!',0))
 
+##### 야끼소바
+##### 불고기 200g (38), 양파1/4(3),양배추1/2주먹(65),숙주나물150g(86),우동사리 200g(91),느타리버섯(32), 생강 엄지 한마디(66), 식용유(35), 간장1T(6),맛술1/2T(40), 설탕1/2T(7), 스리랏차소스3T(92)
+c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredient,recipe,hits) values(recipe_seq.nextval,:1,:2,:3,:4,:5,:6,:7)',
+          ('야끼소바','일식','면','yakisoba.jpg','38,3,65,86,91,32,66,35,6,40,7,92',
+           '양파 1/4개, 양배추 1/2주먹을 채썰고 숙주나물 150g, 느타리버섯을 다듬는다.<br>'+
+           '우동사리 200g을 끓는 물에 2분 삶아준다.<br>'+
+           '식용유로 달군 팬에 생강을 넣어 향을 입힌다.<br>'+
+           '불고기 200g을 먼저 팬에 넣어 볶는다.<br>'+
+           '고기가 익어갈 때 센 불로 손질한 야채들을 넣고 볶아준다.<br>'+
+           '야채가 익었다면 면을 넣어준다.<br>'+
+           '간장 1T, 맛술 0.5T, 설탕 0.5T를 섞어 넣어 간을 맞춘다.<br>'+
+           '스리라차 소스 3T를 넣고 30초간 더 볶아준다.<br>'+
+           '+) 반숙 계란후라이를 올려 먹기<br>'+
+           'EAT!',0))
+
+##### 메밀소바
+##### 메밀면(93), 메밀소바장국(94), 김(88), 와사비(95), 양파(3), 대파(11)
+c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredient,recipe,hits) values(recipe_seq.nextval,:1,:2,:3,:4,:5,:6,:7)',
+          ('메밀소바','일식','면','memilsoba.jpg','93,94,88,95,3,11',
+           '장국 1: 물 6 비율로 메밀장국을 만든다.<br>'+
+           '냄비에 물 800ml를 넣고 끓을 때 면을 넣어 40초간 끓여준다.<br>'+
+           '해면된 면을 3~4번 찬물에 헹구고 체에 받쳐 물기를 뺀다.<br>'+
+           '만들어둔 장국에 면을 넣는다.<br>'+
+           '면 위에 김, 와사비, 양파, 대파를 기호껏 넣는다..<br>'+
+           'EAT!',0))
+
+### 간식
+##### 오코노미야키
+##### 양배추(65), 베이컨(96), 계란(2), 튀김가루(97), 가쓰오부시(98), 데리야끼소스(99), 마요네즈(5), 식용유(35)
+c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredient,recipe,hits) values(recipe_seq.nextval,:1,:2,:3,:4,:5,:6,:7)',
+          ('오코노미야키','일식','간식','okonomiyaki.jpg','65,96,2,97,98,99,5,35',
+           '양배추 200g을 채 썰어 물로 행군 후 물기를 빼준다.<br>'+
+           '물기가 빠진 양배추에 튀김가루 2컵(400ml), 계란 1개를 넣어 준다.<br>'+
+           '베이컨 130g을 취향껏 잘라 넣어주고 물을 100ml정도 넣어준다.<br>'+
+           '물을 조금씩 넣어주며 점도를 조절해 준다.<br>'+
+           '팬에 식용유를 두르고 달궈지면 반죽을 넣고 구워준다.<br>'+
+           '다 익은 오코노미야키를 접시에 담는다.<br>'+
+           '오코노미야키 윗 면에 데리야키 소스, 마요네즈를 골고루 발라주고 가쓰오부시를 올려준다.<br>'+
+           'EAT!',0))
+
+##### 차왕무시
+##### 칵테일 새우(100), 계란(2), 다시마(101), 소금(17), 우유(102)
+c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredient,recipe,hits) values(recipe_seq.nextval,:1,:2,:3,:4,:5,:6,:7)',
+          ('차왕무시','일식','간식','chawangmusi.jpg','100,2,101,17,102',
+           '칵테일 새우 4개 정도 찬물로 해동시켜 뜨거운 물에 10초간 담군다.<br>'+
+           '물에 다시마 4개를 넣고 끓여 육수를 만든다.<br>'+
+           '계란 4개를 채망에 걸러 알을 제거한다.<br>'+
+           '우유 2T, 맛술 1T, 소금 0.5T, 육수 1컵을 넣고 다시 섞어 용기에 담는다.<br>'+
+           '찜기에 물을 넣고 끓인다.<br>'+
+           '물이 끓으려 할 때, 그릇을 넣어주고 거즈로 덮은 후 찜기 뚜껑을 닫는다.<br>'+
+           '중불로 5~6분 정도 찌고 뚜껑을 열어 칵테일 새우를 넣어준다.<br>'+
+           '다시 거즈와 뚜껑을 닫고 5분 정도 쪄준다.<br>'+
+           'EAT!',0))
+
+##### 당고
+##### 건식 찹쌀가루(103), 소금(17), 진간장(6), 설탕(7), 맛술(40), 옥수수전분(104)
+c.execute('insert into recipe (recipeseq,food,category1,category2,image,ingredient,recipe,hits) values(recipe_seq.nextval,:1,:2,:3,:4,:5,:6,:7)',
+          ('당고','일식','간식','dango.jpg','103,17,6,7,40,104',
+           '건식 찹쌀가루 200g을 담고 소금 0.3T를 넣는다.<br>'+
+           '뜨거운 물을 조금씩 부어 질지 않게 식을 떄까지 숟가락으로 섞는다.<br>'+
+           '손으로 치대면서 매끈해 질 때까지 반죽해준다.<br>'+
+           '일정한 크기로 조금씩 떼어내어 동글하게 빚어준다.<br>'+
+           '끓는 물에 동그랗게 빚은 찹쌀반죽을 넣고 저어가며 익혀준다.<br>'+
+           '찹쌀반죽이 위로 뜨면 2~3분 더 익힌 후 꺼내준다.<br>'+
+           '얼음물에 반죽을 1~2분 정도 식힌 후 채에 받쳐 물기를 빼준다.<br>'+
+           '물기가 빠지면 꼬지에 4알씩 꽂아준다.<br>'+
+           '팬에 식용유를 두르고 앞뒤로 노릇하게 구워준다.<br>'+
+           '소스 만들기: 냄비에 간장 20g, 설탕 40g, 물 100g, 맛술 30g, 옥수수 전분 10g을 넣어준다. <br>'+
+           '거품기로 저어서 전분을 풀어준 후 중불에서 계속 저으면서 끓인다.<br>'+
+           '소스가 투명해지고 약간 걸쭉해지면 불을 끈다.<br>'+
+           '숟가락으로 소스를 떠서 앞뒤로 발라준다.<br>'+
+           'EAT!',0))
 
 ##########양식
 ###면
